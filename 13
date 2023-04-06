@@ -1,0 +1,32 @@
+//https://codehow.net/de-quy-da-tuyen-exponential-recursion-trong-c-c++-90.html
+
+#include<iostream>
+using namespace std;
+
+void dayNhiPhan(int i, int n, int *X){
+	for(int var = 0; var< 2; var++){
+		X[i] = var;
+		
+		if(i == (n-1)){
+			for(int j = 0; j<n;j++){
+				cout<<X[j];
+			}
+			cout<<endl;
+		}else{
+			dayNhiPhan(i+1,n,X);
+		}
+	}
+}
+
+int main(){
+	int n;
+    cout<<"Nhap n : ";    
+    cin>>n;
+   
+    int X[n];    
+    cout<<"Day nhi phan co do dai "<<n<<" la:\n";
+    dayNhiPhan(0, n, X);  
+   
+    cout<<"\n--------------------------------\n";
+}
+

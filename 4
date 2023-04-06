@@ -1,0 +1,43 @@
+#include <iostream>
+ const int Max = 100;
+ using namespace std;
+ 
+ int nhap(int a[], int n){
+ 	for(int i=0; i<n; i++){
+ 		cout<<"Nhap vao a["<<i<<"]= ";
+ 		cin>>a[i];
+	 }
+ }
+ 
+ int xuat(int a[],  int n){
+ 	cout<<"Vay mang la: ";
+ 	for(int i=0; i<n; i++){
+ 		cout<<a[i]<<" ";
+	 }
+ }
+ 
+ void chon_truc_tiep(int a[], int n){
+ 	for(int i=0; i<n-1;i++){
+ 		int min =i;
+ 		for(int j=i+1;j<n;j++){
+ 			if(a[j]<a[min])
+ 				min = j;
+		 }
+		 swap(a[min], a[i]);
+	 }
+ }
+ 
+ int main(){
+ 	int n; cout<<"Nhap n: "; cin>>n;
+ 	int a[Max];
+ 	
+ 	nhap(a,n);
+ 	xuat(a,n);
+ 	
+ 	chon_truc_tiep(a,n);
+ 	cout<<endl;
+ 	xuat(a,n);
+ 	
+ 	return 0;
+ 	
+ }

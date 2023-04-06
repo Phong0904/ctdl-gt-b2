@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+void thap_sang_nhi(int n){
+	if(n>1){
+		thap_sang_nhi(n/2);
+	}
+	cout<<n%2;
+}
+int main(){
+	int n; cout<<"Nhap n: "; cin>> n;
+	cout<<"Vay tu so "<<n<<" cua thap phan sang nhi phan la: ";
+	thap_sang_nhi(n); 
+	cout<<endl;
+	return 0;
+}

@@ -1,0 +1,50 @@
+#include <iostream>
+const int Max = 100;
+using namespace std;
+ 
+int nhap(int a[], int n){
+ 	for(int i=0; i<n; i++){
+ 		cout<<"Nhap vao a["<<i<<"]= ";
+ 		cin>>a[i];
+	 }
+}
+ 
+int xuat(int a[],  int n){
+ 	cout<<"Vay mang la: ";
+ 	for(int i=0; i<n; i++){
+ 		cout<<a[i]<<" ";
+	 }
+}
+ 
+void xap_nhanh(int a[], int left, int right){
+	int i=left; int j = right;
+	int mid = a[(left+right)/2];
+	
+	while(i<=j){
+		while(a[i]<mid)
+			i++;
+		while(a[j]>mid)
+			i--;
+		if(i<=j){
+			swap(a[i], a[j]);
+			i++;
+			j--;
+		}	
+	}
+	if(left<j)
+		xap_nhanh(a, left, j);
+	if(i<right)
+		xap_nhanh(a,i,right);
+}
+
+int main(){
+	int n; cout<<"Nhap n: "; cin>>n;int a[Max];
+	nhap(a,n);
+	xuat(a,n);
+	
+	xap_nhanh(a,0,n-1);
+	cout<<endl;
+	xuat(a,n);
+	
+	return 0;
+}

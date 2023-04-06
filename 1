@@ -1,0 +1,56 @@
+ #include <iostream>
+ const int Max = 100;
+ using namespace std;
+ 
+ int nhap(int a[], int n){
+ 	for(int i=0; i<n; i++){
+ 		cout<<"Nhap vao a["<<i<<"]= ";
+ 		cin>>a[i];
+	 }
+ }
+ 
+ int xuat(int a[],  int n){
+ 	cout<<"Vay mang la: ";
+ 	for(int i=0; i<n; i++){
+ 		cout<<a[i]<<" ";
+	 }
+ }
+ int tim_kiem_nhi_phan(int a[], int left, int right, int x){
+ 	while(left <= right){
+ 		int mid = (left+right)/2;
+ 		
+ 		if(a[mid]==x){
+ 			return mid;
+		}
+		if(a[mid]<x){
+			left=mid+1;
+		}else{
+			right = mid - 1;
+		}
+	}
+	return -1;
+}
+
+int main(){
+	int a[Max]; int n;
+	cout<<"Nhap vao n: ";
+	cin>>n;
+	
+	nhap(a,n);
+	xuat(a,n);
+	
+	int left, right, x;
+	left = a[0];
+	right = a[n-1];
+//	cout<<"\nNhap left: "; cin>>left;
+//	cout<<"Nhap right: "; cin>>right;
+	cout<<"\nNhap x: "; cin>>x;
+	
+	int ket_qua = tim_kiem_nhi_phan(a,left, right,x);
+	
+	if(ket_qua == -1){
+		cout<<"Khong tim thay"<<endl;
+	}else{
+		cout<<"Ket qua tai vi tri: "<<ket_qua<<endl; 
+	}
+}
